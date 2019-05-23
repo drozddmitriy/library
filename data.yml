@@ -1,0 +1,85 @@
+---
+:masauthor:
+- !ruby/object:Author
+  name: Allan Walter
+  biography: false
+- !ruby/object:Author
+  name: Ms. Angelique Kub
+  biography: false
+- &1 !ruby/object:Author
+  name: Dr. Blaine Koepp
+  biography: false
+- !ruby/object:Author
+  name: Andrea Crooks
+  biography: false
+- &2 !ruby/object:Author
+  name: Ben Morar
+  biography: false
+:masbook:
+- !ruby/object:Book
+  title: The Stars' Tennis Balls
+  auth: *1
+- &4 !ruby/object:Book
+  title: An Evil Cradling
+  auth: *2
+- &3 !ruby/object:Book
+  title: The Lathe of Heaven
+  auth: *2
+- !ruby/object:Book
+  title: Vanity Fair
+  auth: *2
+- !ruby/object:Book
+  title: The Mermaids Singing
+  auth: *2
+:masorder:
+- !ruby/object:Order
+  book: *3
+  reader: &7 !ruby/object:Reader
+    name: Levi Luettgen
+    email: germankulas@treutelgreen.com
+    city: Keriville
+    street: 941 Conroy Parks
+    house: 66979
+  date: 2019-05-22
+- !ruby/object:Order
+  book: *4
+  reader: &5 !ruby/object:Reader
+    name: Edmundo Halvorson
+    email: susannah@champlin.co
+    city: Beatristown
+    street: 40987 Dietrich Wall
+    house: 5147
+  date: 2019-05-22
+- !ruby/object:Order
+  book: *3
+  reader: &6 !ruby/object:Reader
+    name: Matthew Gutkowski
+    email: rolf@ratkekemmer.io
+    city: Port Edris
+    street: 3317 Dooley Drive
+    house: 587
+  date: 2019-05-22
+- !ruby/object:Order
+  book: *4
+  reader: *5
+  date: 2019-05-22
+- !ruby/object:Order
+  book: *4
+  reader: *6
+  date: 2019-05-22
+:masreader:
+- !ruby/object:Reader
+  name: Melita Aufderhar
+  email: laurettegutkowski@kohintz.com
+  city: South Avishaven
+  street: 3363 Vernita Lane
+  house: 251
+- *5
+- *7
+- *6
+- !ruby/object:Reader
+  name: Ramonita Price
+  email: lacywill@okeefefeeney.org
+  city: Loweberg
+  street: 290 Esther Isle
+  house: 38169
