@@ -37,9 +37,9 @@ def create_Reader(name, email, city, street, house)
 end
 
 def create_Order(book, reader, date = Date.today)
-  if book.is_a? Book && reader.is_a? Reader
-  order = Order.new(book, reader, date)
-  @masorder.push(order)
+  if ((book.is_a? Book) && (reader.is_a? Reader))
+    order = Order.new(book, reader, date)
+    @masorder.push(order)
   end
 end
 

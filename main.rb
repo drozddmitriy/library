@@ -2,17 +2,21 @@ require_relative "core/Library"
 
 lib = Library.new
 
-# lib.create_Book("StarWars", lib.masauthor[1])
+#generate Library
+# lib.generate
 
-# lib.create_Reader("a", "@email", "racoon", "some_street", 77.123)
+###################create entities################################
+# lib.create_Reader("reader", "reader@email", "racooncity", "some_street", 77)
+# lib.create_Author("George Raymond Richard Martin", "biography")
+# lib.create_Book("StarWars", lib.masauthor.last)
+# lib.create_Order(lib.masbook.last, lib.masreader.last, "2019-05-25")
+##################################################################
 
-# lib.create_Author("la-la")
+#save Library
+# lib.save
 
-# lib.create_Order(lib.masbook[0], lib.masbook[1])
-
-p lib.top_reader
-
+################statistic#########################################
+p lib.top_reader(3)
 p lib.most_popular_books(2)
-# lib.show
-
-pp lib.num_of_readers_of_most_popular_books
+p lib.num_of_readers_of_most_popular_books(1)
+##################################################################
