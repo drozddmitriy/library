@@ -1,4 +1,5 @@
 require_relative "core/Library"
+begin
 
 lib = Library.new
 
@@ -16,7 +17,13 @@ lib = Library.new
 # lib.save
 
 ################statistic#########################################
-p lib.top_reader(3)
-p lib.most_popular_books(2)
-p lib.num_of_readers_of_most_popular_books(1)
+puts "Top reader: "
+puts lib.top_reader(3)
+puts "Most popular books: "
+puts lib.most_popular_books(2)
+puts "Number of Readers of the Most Popular Books: "
+puts lib.num_of_readers_of_most_popular_books(1)
 ##################################################################
+rescue My_Valid => error
+  puts error.message
+end

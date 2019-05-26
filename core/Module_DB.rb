@@ -16,6 +16,8 @@ def load_entities
         @masorder = data[:masorder]
         @masreader = data[:masreader]
     end
+  else
+    raise My_Valid.new("file not found!")
   end
 end
 
@@ -26,7 +28,11 @@ def save
       masorder: @masorder,
       masreader: @masreader
     }
-  File.open("data.yml", "w") { |file| file.write(data.to_yaml) }
+    if File.exist?("data.yml")
+      File.open("data.yml", "w") { |file| file.write(data.to_yaml) }
+    else
+      raise My_Valid.new("file not found!")
+    end
 end
 
 end
