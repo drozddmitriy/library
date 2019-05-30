@@ -8,10 +8,10 @@ begin
   # lib.generation
 
   # ##################create entities################################
-  # lib.create_Reader("reader", "reader@email", "racooncity", "some_street", 77)
-  # lib.create_Author("George Raymond Richard Martin", "biography")
-  # lib.create_Book("StarWars", lib.masauthor.last)
-  # lib.create_Order(lib.masbook.last, lib.masreader.last, "2019-05-25")
+  # lib.create_reader("reader", "reader@email", "racooncity", "some_street", 77)
+  # lib.create_author("George Raymond Richard Martin", "biography")
+  # lib.create_book("StarWars", lib.masauthor.last)
+  # lib.create_order(lib.masbook.last, lib.masreader.last, "2019-05-25")
   ##################################################################
 
   # save Library
