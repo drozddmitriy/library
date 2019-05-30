@@ -1,4 +1,9 @@
+require './dependency'
+
 class Library
+  include Database
+  include Generator
+
   attr_accessor :masauthor, :masbook, :masorder, :masreader
 
   def initialize
@@ -31,32 +36,28 @@ class Library
     mass = []
     hash = @masorder.each_with_object(Hash.new(0)) { |v, h| h[v.reader.name] += 1; }
 
-    if hash.count >= quantity
-      quantity.times do
-        a = hash.max_by { |_k, v| v }[0]
-        mass.push(a)
-        hash.delete_if { |k, _v| k == a }
-      end
-      mass
-    else
-      raise Myvalid, 'quantity is faile!'
+    raise Myvalid, 'quantity is faile!' unless hash.count >= quantity
+
+    quantity.times do
+      a = hash.max_by { |_k, v| v }[0]
+      mass.push(a)
+      hash.delete_if { |k, _v| k == a }
     end
+    mass
   end
 
   def most_popular_books(quantity = 1)
     mass = []
     hash = @masorder.each_with_object(Hash.new(0)) { |v, h| h[v.book.title] += 1; }
 
-    if hash.count >= quantity
-      quantity.times do
-        a = hash.max_by { |_k, v| v }[0]
-        mass.push(a)
-        hash.delete_if { |k, _v| k == a } # ###.first
-      end
-      mass
-    else
-      raise Myvalid, 'quantity is faile!'
+    raise Myvalid, 'quantity is faile!' unless hash.count >= quantity
+
+    quantity.times do
+      a = hash.max_by { |_k, v| v }[0]
+      mass.push(a)
+      hash.delete_if { |k, _v| k == a } # ###.first
     end
+    mass
   end
 
   def num_of_readers_of_most_popular_books(quantity = 3)
