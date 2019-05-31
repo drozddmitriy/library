@@ -33,31 +33,19 @@ class Library
   end
 
   def top_reader(quantity = 1)
-    mass = []
     hash = @masorder.each_with_object(Hash.new(0)) { |v, h| h[v.reader.name] += 1; }
 
     raise Myvalid, 'quantity is faile!' unless hash.count >= quantity
 
-    quantity.times do
-      a = hash.max_by { |_k, v| v }[0]
-      mass.push(a)
-      hash.delete_if { |k, _v| k == a }
-    end
-    mass
+    hash.keys.reverse_each.first(quantity)
   end
 
   def most_popular_books(quantity = 1)
-    mass = []
     hash = @masorder.each_with_object(Hash.new(0)) { |v, h| h[v.book.title] += 1; }
 
     raise Myvalid, 'quantity is faile!' unless hash.count >= quantity
 
-    quantity.times do
-      a = hash.max_by { |_k, v| v }[0]
-      mass.push(a)
-      hash.delete_if { |k, _v| k == a } # ###.first
-    end
-    mass
+    hash.keys.reverse_each.first(quantity)
   end
 
   def num_of_readers_of_most_popular_books(quantity = 3)
