@@ -1,85 +1,325 @@
 ---
-:masauthor:
+:authors:
 - !ruby/object:Author
-  name: Allan Walter
+  name: Harris Reynolds
+  biography: false
+- &9 !ruby/object:Author
+  name: Glynda Reichert Sr.
+  biography: false
+- &4 !ruby/object:Author
+  name: Gaynell Little
+  biography: false
+- &13 !ruby/object:Author
+  name: Camille Reinger
   biography: false
 - !ruby/object:Author
-  name: Ms. Angelique Kub
-  biography: false
-- &1 !ruby/object:Author
-  name: Dr. Blaine Koepp
+  name: Edwardo Langosh
   biography: false
 - !ruby/object:Author
-  name: Andrea Crooks
+  name: Cletus Carter
+  biography: false
+- !ruby/object:Author
+  name: Jason Dietrich
+  biography: false
+- !ruby/object:Author
+  name: Beatriz Kutch PhD
+  biography: false
+- !ruby/object:Author
+  name: Theodora Shields DVM
+  biography: false
+- &8 !ruby/object:Author
+  name: Gilbert Reinger
   biography: false
 - &2 !ruby/object:Author
-  name: Ben Morar
+  name: Keven Williamson I
   biography: false
-:masbook:
+- &5 !ruby/object:Author
+  name: Lauren Schaefer II
+  biography: false
+- &7 !ruby/object:Author
+  name: Miss Minerva Runolfsdottir
+  biography: false
+- &3 !ruby/object:Author
+  name: Kathey Abshire
+  biography: false
+- !ruby/object:Author
+  name: Lan Waters
+  biography: false
+- &1 !ruby/object:Author
+  name: Mr. Andrew Kuhic
+  biography: false
+- &11 !ruby/object:Author
+  name: Clemente Barrows MD
+  biography: false
+- &10 !ruby/object:Author
+  name: Ms. Aleida Marvin
+  biography: false
+- &12 !ruby/object:Author
+  name: Lowell Rippin
+  biography: false
+- &6 !ruby/object:Author
+  name: Gerald Daniel DVM
+  biography: false
+:books:
 - !ruby/object:Book
+  title: Beneath the Bleeding
+  author: *1
+- &20 !ruby/object:Book
+  title: Far From the Madding Crowd
+  author: *2
+- !ruby/object:Book
+  title: The Last Temptation
+  author: *3
+- &28 !ruby/object:Book
+  title: Nine Coaches Waiting
+  author: *4
+- &26 !ruby/object:Book
+  title: Unweaving the Rainbow
+  author: *5
+- &16 !ruby/object:Book
+  title: Carrion Comfort
+  author: *6
+- &24 !ruby/object:Book
+  title: Absalom, Absalom!
+  author: *7
+- &21 !ruby/object:Book
+  title: The Millstone
+  author: *4
+- &18 !ruby/object:Book
+  title: The Far-Distant Oxus
+  author: *8
+- &14 !ruby/object:Book
+  title: I Know Why the Caged Bird Sings
+  author: *9
+- &22 !ruby/object:Book
   title: The Stars' Tennis Balls
-  auth: *1
-- &4 !ruby/object:Book
-  title: An Evil Cradling
-  auth: *2
-- &3 !ruby/object:Book
-  title: The Lathe of Heaven
-  auth: *2
+  author: *10
 - !ruby/object:Book
-  title: Vanity Fair
-  auth: *2
+  title: Ego Dominus Tuus
+  author: *9
+- &17 !ruby/object:Book
+  title: Stranger in a Strange Land
+  author: *11
+- &31 !ruby/object:Book
+  title: The Needle's Eye
+  author: *12
 - !ruby/object:Book
-  title: The Mermaids Singing
-  auth: *2
-:masorder:
+  title: The Skull Beneath the Skin
+  author: *13
+- !ruby/object:Book
+  title: A Scanner Darkly
+  author: *11
+- !ruby/object:Book
+  title: What's Become of Waring
+  author: *5
+- &25 !ruby/object:Book
+  title: The Torment of Others
+  author: *5
+- &15 !ruby/object:Book
+  title: A Summer Bird-Cage
+  author: *4
+- &23 !ruby/object:Book
+  title: Things Fall Apart
+  author: *7
+:orders:
 - !ruby/object:Order
-  book: *3
-  reader: &7 !ruby/object:Reader
-    name: Levi Luettgen
-    email: germankulas@treutelgreen.com
-    city: Keriville
-    street: 941 Conroy Parks
-    house: 66979
-  date: 2019-05-22
+  book: *14
+  reader: &32 !ruby/object:Reader
+    name: Victor Stamm MD
+    email: adelle@bradtke.name
+    city: Barryfort
+    street: 128 Hudson Summit
+    house: 732
+  date: 2019-06-04
 - !ruby/object:Order
-  book: *4
-  reader: &5 !ruby/object:Reader
-    name: Edmundo Halvorson
-    email: susannah@champlin.co
-    city: Beatristown
-    street: 40987 Dietrich Wall
-    house: 5147
-  date: 2019-05-22
+  book: *15
+  reader: &35 !ruby/object:Reader
+    name: Dreama Reynolds
+    email: angel@bechtelar.io
+    city: Lake Alex
+    street: 220 Halvorson Mission
+    house: 4666
+  date: 2019-06-04
 - !ruby/object:Order
-  book: *3
-  reader: &6 !ruby/object:Reader
-    name: Matthew Gutkowski
-    email: rolf@ratkekemmer.io
-    city: Port Edris
-    street: 3317 Dooley Drive
-    house: 587
-  date: 2019-05-22
+  book: *16
+  reader: &19 !ruby/object:Reader
+    name: Miquel Durgan V
+    email: douglacarter@doyle.net
+    city: North Thad
+    street: 331 Ira Valley
+    house: 174
+  date: 2019-06-04
 - !ruby/object:Order
-  book: *4
-  reader: *5
-  date: 2019-05-22
+  book: *17
+  reader: &29 !ruby/object:Reader
+    name: Iola Skiles Sr.
+    email: mittie@prohaska.co
+    city: Lake Sebastian
+    street: 182 Bartoletti Mews
+    house: 220
+  date: 2019-06-04
 - !ruby/object:Order
-  book: *4
-  reader: *6
-  date: 2019-05-22
-:masreader:
+  book: *18
+  reader: *19
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *20
+  reader: &27 !ruby/object:Reader
+    name: Shirely Herman PhD
+    email: joan@tillman.name
+    city: Jonashire
+    street: 2882 Heaney Place
+    house: 14817
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *21
+  reader: &38 !ruby/object:Reader
+    name: Rupert Murazik II
+    email: giovanniwill@schinnerlegros.info
+    city: West Mayburgh
+    street: 370 Cruickshank Roads
+    house: 2727
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *17
+  reader: &37 !ruby/object:Reader
+    name: Rosalia Yundt DDS
+    email: latoyahilll@jenkins.com
+    city: Joyeland
+    street: 29502 Caron Overpass
+    house: 366
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *22
+  reader: &30 !ruby/object:Reader
+    name: Sherell Rempel I
+    email: chi@walkerreilly.net
+    city: West Tristanstad
+    street: 905 Lakiesha Pines
+    house: 1381
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *23
+  reader: &33 !ruby/object:Reader
+    name: Mr. Leopoldo VonRueden
+    email: caroylnreichert@nikolaus.io
+    city: Miquelfurt
+    street: 13843 Bauch Motorway
+    house: 790
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *24
+  reader: &40 !ruby/object:Reader
+    name: Mrs. Gordon Ondricka
+    email: chaya@rogahnkertzmann.org
+    city: Port Bertram
+    street: 453 Leora Corners
+    house: 89657
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *25
+  reader: &39 !ruby/object:Reader
+    name: Demetrius Dicki
+    email: carieratke@swiftrodriguez.com
+    city: Cartershire
+    street: 142 Hudson Hills
+    house: 8454
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *26
+  reader: &41 !ruby/object:Reader
+    name: Rocco Hirthe
+    email: nanrempel@wolf.name
+    city: D'Amoreburgh
+    street: 3903 Olson Key
+    house: 195
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *21
+  reader: *27
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *28
+  reader: &34 !ruby/object:Reader
+    name: Alexandra Gulgowski Sr.
+    email: harvey@anderson.net
+    city: Osvaldoside
+    street: 6252 Greenholt Terrace
+    house: 3999
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *17
+  reader: *29
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *24
+  reader: *30
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *22
+  reader: *27
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *31
+  reader: *32
+  date: 2019-06-04
+- !ruby/object:Order
+  book: *14
+  reader: &36 !ruby/object:Reader
+    name: Mrs. Lauren Durgan
+    email: josephina@kriskshlerin.biz
+    city: East Stacitown
+    street: 25540 Effie Freeway
+    house: 98119
+  date: 2019-06-04
+:readers:
 - !ruby/object:Reader
-  name: Melita Aufderhar
-  email: laurettegutkowski@kohintz.com
-  city: South Avishaven
-  street: 3363 Vernita Lane
-  house: 251
-- *5
-- *7
-- *6
+  name: Jermaine Zieme
+  email: judsonzemlak@boehm.com
+  city: East Herbberg
+  street: 81026 Hauck Circle
+  house: 7017
 - !ruby/object:Reader
-  name: Ramonita Price
-  email: lacywill@okeefefeeney.org
-  city: Loweberg
-  street: 290 Esther Isle
-  house: 38169
+  name: Mrs. Maria Parker
+  email: christene@mcculloughwhite.net
+  city: East Trinidad
+  street: 93072 Kautzer Court
+  house: 444
+- *33
+- *34
+- *35
+- !ruby/object:Reader
+  name: Mr. Aaron Jakubowski
+  email: ramonaabernathy@damoremarks.co
+  city: West Rodney
+  street: 7855 Harvey Union
+  house: 2710
+- *36
+- !ruby/object:Reader
+  name: Forest Kovacek
+  email: petereynolds@hills.co
+  city: Thielborough
+  street: 7124 Truman View
+  house: 2917
+- *27
+- *37
+- *38
+- *30
+- *19
+- !ruby/object:Reader
+  name: Norman McLaughlin MD
+  email: coreybatz@mueller.net
+  city: Blockchester
+  street: 147 Noah Islands
+  house: 61825
+- !ruby/object:Reader
+  name: Coralie Abshire
+  email: louie@smithamtreutel.info
+  city: Bauchland
+  street: 597 Marks Cove
+  house: 37781
+- *39
+- *29
+- *40
+- *41
+- *32

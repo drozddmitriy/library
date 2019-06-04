@@ -1,5 +1,4 @@
-require './core/myvalid'
-require './core/library'
+require './dependency'
 
 begin
   lib = Library.new
@@ -7,16 +6,16 @@ begin
   # generate Library
   # lib.generation
 
-  # ##################create entities################################
-  # lib.create_reader("reader", "reader@email", "racooncity", "some_street", 77)
-  # lib.create_author("George Raymond Richard Martin", "biography")
-  # lib.create_book("StarWars", lib.masauthor.last)
-  # lib.create_order(lib.masbook.last, lib.masreader.last, "2019-05-25")
+  # # ##################create entities################################
+  # lib.add_library_entity(Reader.new('reader', 'reader@email', 'racooncity', 'some_street', 77))
+  # lib.add_library_entity(Author.new('lolo lala', 'biography'))
+  # lib.add_library_entity(Book.new('StarWars', lib.authors.last))
+  # lib.add_library_entity(Order.new(lib.books.last, lib.readers.last, '2019-05-25'))
   ##################################################################
-
-  # save Library
-  # lib.save
-
+  #
+  # # save Library
+  # lib.save(lib.to_hash)
+  #
   # ###############statistic#########################################
   puts 'Top reader: '
   puts lib.top_reader(3)
@@ -25,6 +24,6 @@ begin
   puts 'Number of Readers of the Most Popular Books: '
   puts lib.num_of_readers_of_most_popular_books(1)
   ##################################################################
-rescue Myvalid => e
+rescue Validation => e
   puts e.message
 end

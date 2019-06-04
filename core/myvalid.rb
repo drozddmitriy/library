@@ -1,2 +1,0 @@
-class Myvalid < StandardError
-end

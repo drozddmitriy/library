@@ -1,11 +1,11 @@
 module Generator
   def generation
-    20.times { create_author(Faker::Name.name) }
-    20.times { create_book(Faker::Book.title, @masauthor[Random.rand(1...20)]) }
+    20.times { add_library_entity(Author.new(Faker::Name.name)) }
+    20.times { add_library_entity(Book.new(Faker::Book.title, @authors[Random.rand(1...20)])) }
     generation_reader_especially_for_rubocop
     20.times do
-      create_order(@masbook[Random.rand(1...20)],
-                   @masreader[Random.rand(1...20)])
+      add_library_entity Order.new(@books[Random.rand(1...20)],
+                                   @readers[Random.rand(1...20)])
     end
   end
 
@@ -13,9 +13,9 @@ module Generator
 
   def generation_reader_especially_for_rubocop
     20.times do
-      create_reader(Faker::Name.name, Faker::Internet.email,
-                    Faker::Address.city, Faker::Address.street_address,
-                    Faker::Address.building_number.to_i)
+      add_library_entity Reader.new(Faker::Name.name, Faker::Internet.email,
+                                    Faker::Address.city, Faker::Address.street_address,
+                                    Faker::Address.building_number.to_i)
     end
   end
 end

@@ -1,8 +1,14 @@
 class Book
-  attr_accessor :title, :auth
+  attr_reader :title, :author
 
-  def initialize(title, auth)
+  def initialize(title, author)
     @title = title
-    @auth = auth
+    @author = author
+  end
+
+  def validate
+    instance?(String, title)
+    instance?(Author, author)
+    empty?(title)
   end
 end

@@ -1,49 +1,43 @@
-require './dependency'
-
 class Library
   include Database
   include Generator
 
-  attr_accessor :masauthor, :masbook, :masorder, :masreader
+  attr_accessor :authors, :books, :orders, :readers
 
   def initialize
-    load_entities
+    data = load_entities
+    @authors = data[:authors] || []
+    @books = data[:books] || []
+    @orders = data[:orders] || []
+    @readers = data[:readers] || []
   end
 
-  def create_book(title, auth)
-    raise Myvalid, 'wrong argument author!' unless auth.is_a? Author
-
-    @masbook.push(Book.new(title, auth))
+  def to_hash
+    { authors: @authors, books: @books, orders: @orders, readers: @readers }
   end
 
-  def create_author(name, biography = false)
-    @masauthor.push(Author.new(name, biography))
-  end
-
-  def create_reader(name, email, city, street, house)
-    raise Myvalid, 'house should be a Integer and positive number!' unless (house.is_a? Integer) && house.positive?
-
-    @masreader.push(Reader.new(name, email, city, street, house))
-  end
-
-  def create_order(book, reader, date = Date.today)
-    raise Myvalid, 'wrong argument book or reader!' unless (book.is_a? Book) && (reader.is_a? Reader)
-
-    @masorder.push(Order.new(book, reader, date))
+  def add_library_entity(entity)
+    entity.validate
+    case entity
+    when Book then @books.push(entity)
+    when Author then @authors.push(entity)
+    when Reader then @readers.push(entity)
+    when Order then @orders.push(entity)
+    end
   end
 
   def top_reader(quantity = 1)
-    hash = @masorder.each_with_object(Hash.new(0)) { |v, h| h[v.reader.name] += 1; }
+    hash = @orders.each_with_object(Hash.new(0)) { |v, h| h[v.reader.name] += 1; }
 
-    raise Myvalid, 'quantity is faile!' unless hash.count >= quantity
+    raise Validation, 'quantity is faile!' unless hash.count >= quantity
 
     hash.keys.reverse_each.first(quantity)
   end
 
   def most_popular_books(quantity = 1)
-    hash = @masorder.each_with_object(Hash.new(0)) { |v, h| h[v.book.title] += 1; }
+    hash = @orders.each_with_object(Hash.new(0)) { |v, h| h[v.book.title] += 1; }
 
-    raise Myvalid, 'quantity is faile!' unless hash.count >= quantity
+    raise Validation, 'quantity is faile!' unless hash.count >= quantity
 
     hash.keys.reverse_each.first(quantity)
   end
@@ -51,7 +45,7 @@ class Library
   def num_of_readers_of_most_popular_books(quantity = 3)
     most_books = most_popular_books(quantity)
 
-    @masorder.select { |order| most_books.include? order.book.title }
-             .uniq { |value| value.reader.name }.count
+    @orders.select { |order| most_books.include? order.book.title }
+           .uniq { |value| value.reader.name }.count
   end
 end

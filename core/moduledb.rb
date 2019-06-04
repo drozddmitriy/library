@@ -1,30 +1,15 @@
 module Database
-  def load_entities
-    raise Myvalid, 'file not found!' unless File.exist?('data.yml')
+  FILE = 'data.yml'.freeze
 
-    data = YAML.load_file 'data.yml'
-    if data == false
-      @masauthor = []
-      @masbook = []
-      @masorder = []
-      @masreader = []
-    else
-      @masauthor = data[:masauthor]
-      @masbook = data[:masbook]
-      @masorder = data[:masorder]
-      @masreader = data[:masreader]
-    end
+  def load_entities
+    raise Validation, 'file not found!' unless File.exist?(FILE)
+
+    (YAML.load_file FILE) || { authors: nil, books: nil, orders: nil, readers: nil }
   end
 
-  def save
-    data = {
-      masauthor: @masauthor,
-      masbook: @masbook,
-      masorder: @masorder,
-      masreader: @masreader
-    }
-    raise Myvalid, 'file not found!' unless File.exist?('data.yml')
+  def save(data)
+    raise Validation, 'file not found!' unless File.exist?(FILE)
 
-    File.open('data.yml', 'w') { |file| file.write(data.to_yaml) }
+    File.open(FILE, 'w') { |file| file.write(data.to_yaml) }
   end
 end
