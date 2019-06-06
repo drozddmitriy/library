@@ -1,15 +1,15 @@
 module Database
-  FILE = 'data.yml'.freeze
+  FILE_NAME = 'data.yml'.freeze
 
   def load_entities
-    raise Validation, 'file not found!' unless File.exist?(FILE)
+    raise Validation, 'file not found!' unless File.exist?(FILE_NAME)
 
-    (YAML.load_file FILE) || { authors: nil, books: nil, orders: nil, readers: nil }
+    (YAML.load_file FILE_NAME) || { authors: nil, books: nil, orders: nil, readers: nil }
   end
 
   def save(data)
-    raise Validation, 'file not found!' unless File.exist?(FILE)
+    raise Validation, 'file not found!' unless File.exist?(FILE_NAME)
 
-    File.open(FILE, 'w') { |file| file.write(data.to_yaml) }
+    File.open(FILE_NAME, 'w') { |file| file.write(data.to_yaml) }
   end
 end

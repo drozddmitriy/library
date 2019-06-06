@@ -1,8 +1,7 @@
 class Library
   include Database
-  include Generator
 
-  attr_accessor :authors, :books, :orders, :readers
+  attr_accessor :authors, :books, :orders, :readers, :hash
 
   def initialize
     data = load_entities
@@ -12,8 +11,8 @@ class Library
     @readers = data[:readers] || []
   end
 
-  def to_hash
-    { authors: @authors, books: @books, orders: @orders, readers: @readers }
+  def lib_save
+    save(authors: @authors, books: @books, orders: @orders, readers: @readers)
   end
 
   def add_library_entity(entity)
@@ -23,6 +22,7 @@ class Library
     when Author then @authors.push(entity)
     when Reader then @readers.push(entity)
     when Order then @orders.push(entity)
+    else raise Validation, 'entity is faile!'
     end
   end
 

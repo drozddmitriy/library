@@ -1,4 +1,5 @@
 class Author
+  include ValidationEntity
   attr_reader :name, :biography
 
   def initialize(name, biography = false)

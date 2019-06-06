@@ -1,4 +1,5 @@
 class Book
+  include ValidationEntity
   attr_reader :title, :author
 
   def initialize(title, author)

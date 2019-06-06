@@ -1,4 +1,5 @@
 class Order
+  include ValidationEntity
   attr_reader :book, :reader, :date
 
   def initialize(book, reader, date = Date.today)
