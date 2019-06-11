@@ -1,7 +1,7 @@
 class Library
   include Database
 
-  attr_accessor :authors, :books, :orders, :readers, :hash
+  attr_accessor :authors, :books, :orders, :readers
 
   def initialize
     data = load_entities
@@ -22,22 +22,22 @@ class Library
     when Author then @authors.push(entity)
     when Reader then @readers.push(entity)
     when Order then @orders.push(entity)
-    else raise Validation, 'entity is faile!'
+    else raise BookValidation, 'entity is faile!'
     end
   end
 
   def top_reader(quantity = 1)
     hash = @orders.each_with_object(Hash.new(0)) { |v, h| h[v.reader.name] += 1; }
 
-    raise Validation, 'quantity is faile!' unless hash.count >= quantity
+    raise BookValidation, 'quantity is faile!' unless hash.count >= quantity
 
-    hash.keys.reverse_each.first(quantity)
+    hash.sort.to_h.keys.reverse_each.first(quantity)
   end
 
   def most_popular_books(quantity = 1)
     hash = @orders.each_with_object(Hash.new(0)) { |v, h| h[v.book.title] += 1; }
 
-    raise Validation, 'quantity is faile!' unless hash.count >= quantity
+    raise BookValidation, 'quantity is faile!' unless hash.count >= quantity
 
     hash.keys.reverse_each.first(quantity)
   end

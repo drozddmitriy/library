@@ -1,2 +1,2 @@
-class Validation < StandardError
+class BookValidation < StandardError
 end

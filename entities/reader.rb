@@ -13,6 +13,6 @@ class Reader
   def validate
     instance?(String, name, email, city, street)
     empty?(name, email, city, street)
-    raise Validation, 'error house' unless house.is_a? Integer
+    raise BookValidation, 'error house' unless house.is_a? Integer
   end
 end
