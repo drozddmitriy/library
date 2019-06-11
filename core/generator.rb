@@ -1,25 +1,25 @@
 class Generator
   def generate_authors
     authors = []
-    20.times { authors.push(Author.new(FFaker::Name.name)) }
+    10.times { authors.push(Author.new(FFaker::Name.name)) }
     authors
   end
 
-  def generate_books
+  def generate_books(authors)
     books = []
-    20.times { books.push(Book.new(FFaker::Book.title, generate_authors.sample)) }
+    10.times { books.push(Book.new(FFaker::Book.title, authors.sample)) }
     books
   end
 
-  def generate_orders
+  def generate_orders(books, readers)
     orders = []
-    20.times { orders.push(Order.new(generate_books.sample, generate_readers.sample)) }
+    10.times { orders.push(Order.new(books.sample, readers.sample)) }
     orders
   end
 
   def generate_readers
     readers = []
-    20.times do
+    10.times do
       readers.push(Reader.new(FFaker::Name.name, FFaker::Internet.email,
                               FFaker::Address.city,
                               FFaker::Address.street_name,
