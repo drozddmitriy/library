@@ -1,5 +1,6 @@
 class Library
   include Database
+  include Statistic
 
   attr_accessor :authors, :books, :orders, :readers
 
@@ -26,26 +27,21 @@ class Library
     end
   end
 
-  def top_reader(quantity = 1)
-    hash = @orders.each_with_object(Hash.new(0)) { |v, h| h[v.reader.name] += 1; }
-
-    raise BookValidation, 'quantity is faile!' unless hash.count >= quantity
-
-    hash.sort.to_h.keys.reverse_each.first(quantity)
+  def get_top_reader(quantity = 1)
+    list = top_reader(@orders, quantity)
+    list.to_h.each_key do |reader|
+      puts reader.name
+    end
   end
 
-  def most_popular_books(quantity = 1)
-    hash = @orders.each_with_object(Hash.new(0)) { |v, h| h[v.book.title] += 1; }
-
-    raise BookValidation, 'quantity is faile!' unless hash.count >= quantity
-
-    hash.keys.reverse_each.first(quantity)
+  def get_most_popular_books(quantity = 1)
+    list = most_popular_books(@orders, quantity)
+    list.to_h.each_key do |book|
+      puts book.title
+    end
   end
 
-  def num_of_readers_of_most_popular_books(quantity = 3)
-    most_books = most_popular_books(quantity)
-
-    @orders.select { |order| most_books.include? order.book.title }
-           .uniq { |value| value.reader.name }.count
+  def get_num_of_readers_of_most_popular_books(quantity = 3)
+    puts num_of_readers_of_most_popular_books(@orders, quantity)
   end
 end
