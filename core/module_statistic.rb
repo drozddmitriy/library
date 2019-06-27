@@ -8,11 +8,8 @@ module Statistic
   end
 
   def num_of_readers_of_most_popular_books(orders, quantity)
-    array_books = []
     most_books = most_popular_books(orders, quantity)
-    most_books.to_h.each_key do |book|
-      array_books.push(book.title)
-    end
+    array_books = most_books.to_h.keys.map(&:title)
     orders.select { |order| array_books.include? order.book.title }
           .uniq { |value| value.reader.name }.count
   end
