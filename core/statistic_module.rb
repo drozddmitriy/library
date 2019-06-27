@@ -1,4 +1,4 @@
-module Statistic
+module StatisticModule
   def top_reader(orders, quantity)
     orders.group_by(&:reader).sort_by { |_key, order| -order.count }.first(quantity)
   end

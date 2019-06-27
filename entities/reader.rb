@@ -1,5 +1,5 @@
 class Reader
-  include ValidationEntity
+  include ValidationEntityModule
   attr_reader :name, :email, :city, :street, :house
 
   def initialize(name, email, city, street, house)

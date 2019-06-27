@@ -1,5 +1,5 @@
 class Book
-  include ValidationEntity
+  include ValidationEntityModule
   attr_reader :title, :author
 
   def initialize(title, author)

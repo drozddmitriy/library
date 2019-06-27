@@ -1,6 +1,6 @@
 class Library
-  include Database
-  include Statistic
+  include DatabaseModule
+  include StatisticModule
 
   attr_accessor :authors, :books, :orders, :readers
 

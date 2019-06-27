@@ -1,4 +1,4 @@
-module ValidationEntity
+module ValidationEntityModule
   def empty?(*args)
     raise BookValidation, 'Error argument is empty' if args.any?(&:empty?)
   end
